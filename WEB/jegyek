@@ -1,0 +1,79 @@
+1.
+SELECT COUNT(*) FROM jegyek
+
+2.
+SELECT SUM(nezok_szama) FROM jegyek
+WHERE datum = "2024-05-04"
+
+3.
+SELECT SUM(ar * nezok_szama) FROM jegyek
+WHERE film_cim LIKE "Batman"
+
+4.
+SELECT MAX(nezok_szama) FROM jegyek
+
+5.
+SELECT MIN(nezok_szama) FROM jegyek
+
+6.
+SELECT AVG(nezok_szama) FROM jegyek
+WHERE film_cim = "Dune"
+
+7.
+SELECT Sum(nezok_szama) FROM jegyek
+WHERE terem = 1
+
+8.
+SELECT Sum(nezok_szama) FROM jegyek
+WHERE datum = "2024-05-05"
+
+1.
+SELECT film_cim, SUM(nezok_szama) FROM jegyek
+GROUP BY film_cim
+
+2.
+SELECT film_cim, SUM(ar * nezok_szama) FROM jegyek
+GROUP BY film_cim
+
+3.
+SELECT film_cim, SUM(nezok_szama) FROM jegyek
+GROUP BY film_cim
+ORDER BY SUM(nezok_szama) DESC
+LIMIT 1
+
+4.
+SELECT datum, SUM(ar * nezok_szama) as "bevetel" FROM jegyek
+GROUP BY datum
+
+5.
+SELECT film_cim, SUM(nezok_szama) FROM jegyek
+GROUP BY film_cim
+HAVING SUM(nezok_szama) > 200
+
+6.
+SELECT terem, SUM(nezok_szama) FROM jegyek
+GROUP BY terem
+
+7.
+SELECT film_cim, SUM(nezok_szama) FROM jegyek
+GROUP BY film_cim
+ORDER BY SUM(nezok_szama) DESC
+LIMIT 3
+
+1.
+SELECT film_cim, ar, datum FROM jegyek
+ORDER BY ar DESC
+LIMIT 4
+
+2.
+SELECT film_cim, ar FROM jegyek
+ORDER BY ar DESC
+LIMIT 1
+
+3.
+SELECT SUM(nezok_szama) FROM jegyek
+WHERE terem = 1
+
+4.
+SELECT SUM(ar * nezok_szama) FROM jegyek
+WHERE datum = "2024-05-05"
